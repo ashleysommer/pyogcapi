@@ -45,6 +45,7 @@ $ deactivate
 
 
 ## Compatibility
+
 pyOGCAPI is a Python3 library. For best compatibility use Python v3.6 or greater. Python3 v3.5 or below is _**not supported**_ and this library _**does not work**_ on Python v2.7.x or below.
 
 pyOGCAPI is now a PEP518 & PEP517 project, it uses `pyproject.toml` and `poetry` to manage dependencies, build and install.
@@ -53,23 +54,26 @@ For best compatibility when installing from PyPI with `pip`, upgrade to pip v18.
   - If you're on Ubuntu 16.04 or 18.04, you will need to run `sudo pip3 install --upgrade pip` to get the newer version.
 
 ## Changelog
+
 A comprehensive changelog is kept in the [CHANGELOG file](https://github.com/ashleysommer/pyogcapi/blob/master/CHANGELOG.md).
 
 
 ## License
+
 This repository is licensed under Apache License, Version 2.0. See the [LICENSE deed](https://github.com/ashleysommer/pyogcapi/blob/master/LICENSE.txt) for details.
 
 
 ## Contributors
+
 See the [CONTRIBUTORS file](https://github.com/ashleysommer/pyogcapi/blob/master/CONTRIBUTORS.md).
 
 
 ## Contacts
 
-Lead Developer:
-**Ashley Sommer**
-*Informatics Software Engineer*
-CSIRO Land & Water, Environmental Informatics Group
-Brisbane, Qld, Australia
-<Ashley.Sommer@csiro.au>
-<https://orcid.org/0000-0003-0590-0131>
+Lead Developer:  
+**Ashley Sommer**  
+*Informatics Software Engineer*  
+CSIRO Land & Water, Environmental Informatics Group  
+Brisbane, Qld, Australia  
+<Ashley.Sommer@csiro.au>  
+<https://orcid.org/0000-0003-0590-0131>  
