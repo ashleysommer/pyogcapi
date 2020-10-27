@@ -1,0 +1,8 @@
+include *.txt *.md
+include pyproject.toml
+include poetry.lock
+include MANIFEST.in
+include pyogcapi/*
+include test/*.py
+include examples/*.py
+recursive-include docs *.txt *.md
