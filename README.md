@@ -1,5 +1,5 @@
 # pyOGCAPI
-An Async-First, modern OGC-API implementation for Python 3.6+
+An Async-First, modern OGC-API server for Python 3.6+
 
 [![Build Status](https://travis-ci.org/ashleysommer/pyogcapi.svg?branch=master)](https://travis-ci.org/ashleysommer/pyogcapi) [![Coverage Status](https://coveralls.io/repos/github/ashleysommer/pyogcapi/badge.svg?branch=master)](https://coveralls.io/github/ashleysommer/pyogcapi?branch=master) [![PyPI version](https://badge.fury.io/py/pyogcapi.svg)](https://badge.fury.io/py/pyogcapi) [![Code Style Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
@@ -15,14 +15,31 @@ Differences between PyGeoAPI and pyOGCAPI include:
 - License
   - While both projects are Open-Source, pyOGCAPI is provided under the "Apache-2.0" license.
   - PyGeoAPI uses the MIT Open Source license.
+- Use as a python module
+  - PyGeoAPI is a standalone application, whereas pyOGCAPI can be imported as a server library into your existing application
+- Powerful, Extensible Plugin System
+  - PyOGCAPI uses the pyutil.components.core Component Plugin implementation, inspired by the Plugins subsystem of CKAN.
 - No Shared Code
   - pyOGCAPI is a completely independent OGC-API implementation, it does not share or borrow any source code from PyGeoAPI or any other OGC-API implementation.
+- PEP-517/PEP-519
+  - pyOGCAPI is a PEP-517 based python project, it uses Poetry to manage its dependencies and create release builds
 
 Similarities between PyGeoAPI and pyOGCAPI include:
 - Configuration
   - pyOGCAPI uses the same Configuration file YAML format.
   - PyGeoAPI configuration files should work fine in pyOGCAPI.
-
+- Routes
+  - Given both pyOGCAPI and PyGeoAPI both implement the OGC-API specifications, they share a lot of web routing logic
+- Providers
+  - pyOGCAPI has built in many of the same backend data provider types as PyGeoAPI
+  - Provider Interface - Initially pyOGCAPI data provider modules implement the same module-level interface as PyGeoAPI, but that may change as pyOGCAPI evolves.
+  - pyOGCAPI implements an _async_ version of each provider, eg using Motor for mongodb, aiofiles for filesystem, and asyncpg for postgresql
+- Templates
+  - pyOGCAPI uses HTML templates with a layout inspired by (but not copied from) HTML templates in PyGeoAPI.
+  - There are only so many ways this kind of information can be presented, this way is familiar to most users.
+- Logging
+  - pyOGCAPI logging subsystem is configured in the same way as PyGeoAPI
+  - pyOGCAPI emits many of the same or similar log messages as PyGeoAPI
 
 
 ## Installation
@@ -33,7 +50,7 @@ $ pip3 install pyogcapi
 
 Or in a python virtualenv _(these example commandline instructions are for a Linux/Unix based OS)_
 ```bash
-$ python3 -m virtualenv --python=python3 --no-site-packages .venv
+$ python3 -m virtualenv --python=python3 .venv
 $ source ./.venv/bin/activate
 $ pip3 install pyogcapi
 ```

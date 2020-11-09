@@ -32,6 +32,10 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: PyPy",
     "Operating System :: OS Independent"
 ]
+
+[tool.poetry.urls]
+"Issue Tracker" = "https://github.com/ashleysommer/pyogcapi/issues"
+
 packages = [
     { include = "pyogcapi" },
     { include = "examples", format = "sdist" },
@@ -49,20 +53,41 @@ include = [
     "pyocapi/*"
 ]
 
+[tool.poetry.plugins] # Optional super table
+
+[tool.poetry.plugins."pyogcapi.plugins"]
+".rst" = "some_module:SomeClass"
+
+[tool.poetry.plugins."pyogcapi.system_plugins"]
+"provider.CSV" = "pyogcapi.providers.csv:CSVProvider"
+
+
 [tool.poetry.dependencies]
-python = "^3.6.1"
+python = "^3.6.1"  # latest version of websockets doesn't work on 3.6.0, so using Sanic requires python >= 3.6.1
+setuptools = ">=40.8"
 # Blacklist all versions of Sanic >=19.12 that contain the Streaming ASGI bug
 sanic = ">=19.12,!=19.12.0,!=19.12.1,!=19.12.2,!=20.3.0,!=20.6.0,!=20.6.1,!=20.6.2,!=20.6.3,!=20.9.0"
+sanic-plugins-framework = ">=0.9.4,<1.0"
+jinja2 = ">=2.10.0,<3.0.0"
+sanic-jinja2-spf = ">=0.8.0,<1.0"
+sanic-cors = ">=0.10.0.post3,<1.0"
+arrow = ">=0.17.0,<1.0.0"
+PyYAML = ">=5.0.0,<6.0.0"
 orjson = ">=3.0.0,<=3.3.1"
+aiofiles = ">=0.6.0,<1.0.0"
+motor = ">=2.1,<=2.4"
 
 [tool.poetry.dev-dependencies]
+pip = ">=19.3"
+pyld = ">=2.0.0"
 coverage = "^4.5"
 pytest = "^5.0"
 pytest-cov = "^2.8.1"
 flake8 = "^3.7"
 isort = {version="^5.0.0", python=">=3.6"}
-black = {version=">=18.9b0,<=19.10b0", python=">=3.6"}
+black = {version="19.10b0", python=">=3.6"}
 mypy = {version="^0.770.0", python=">=3.6"}
+
 
 [tool.dephell.main]
 from = {format = "poetry", path = "pyproject.toml"}
